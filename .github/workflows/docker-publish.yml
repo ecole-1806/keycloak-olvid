@@ -71,7 +71,7 @@ jobs:
       # Retrieve bundle from Olvid
       - name: Download bundle from Olvid
         env:
-          OLVID_VERSION: ${{ steps.meta.outputs.tags }}
+          OLVID_VERSION: ${{ env.DOCKER_METADATA_OUTPUT_VERSION }}
         run: wget "https://static.olvid.io/keycloak/keycloak_olvid_${OLVID_VERSION}.tar.gz"
 
       # Build and push Docker image with Buildx (don't push on PR)
