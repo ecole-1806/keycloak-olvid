@@ -7,8 +7,6 @@ name: Docker
 
 on:
   push:
-    branches: [ "main" ]
-    # Publish semver tags as releases.
     tags: [ 'v*' ]
   pull_request:
     branches: [ "main" ]
@@ -74,7 +72,7 @@ jobs:
       # Retrieve bundle from Olvid
       - name: Download bundle from Olvid
         env:
-          OLVID_VERSION: ${{ steps.meta.outputs. }}
+          OLVID_VERSION: ${{ steps.meta.outputs.tags }}
         run: wget "https://static.olvid.io/keycloak/keycloak_olvid_${OLVID_VERSION}.tar.gz"
 
       # Build and push Docker image with Buildx (don't push on PR)
