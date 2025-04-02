@@ -66,8 +66,7 @@ jobs:
           tags: |
             type=ref,event=branch
             type=ref,event=pr
-            type=semver,pattern={{version}}
-            type=semver,pattern={{major}}.{{minor}}        
+            type=match,pattern=v(.*),group=1    
 
       # Retrieve bundle from Olvid
       - name: Download bundle from Olvid
