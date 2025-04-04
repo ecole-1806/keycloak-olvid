@@ -15,6 +15,11 @@ FROM registry.access.redhat.com/ubi9-micro
 ENV LANG en_US.UTF-8
 
 ENV KC_RUN_IN_CONTAINER true
+ENV KC_HEALTH_ENABLED=true
+ENV KC_METRICS_ENABLED=true
+ENV KC_DB=postgres
+
+RUN /opt/keycloak/bin/kc.sh build
 
 COPY --from=ubi-micro-build /tmp/null/rootfs/ /
 COPY --from=ubi-micro-build --chown=1000:0 /opt/keycloak /opt/keycloak
