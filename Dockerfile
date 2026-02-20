@@ -1,6 +1,6 @@
 FROM registry.access.redhat.com/ubi9 AS ubi-micro-build
 
-ENV KEYCLOAK_VERSION=26.4.7_4.4.1
+ENV KEYCLOAK_VERSION=26.5.3_4.5.1
 ARG KEYCLOAK_DIST=keycloak*.tar.gz
 
 ADD $KEYCLOAK_DIST /tmp/keycloak/
